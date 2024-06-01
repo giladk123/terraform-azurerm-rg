@@ -28,8 +28,8 @@ No modules.
 
 | Name | Description |
 |------|-------------|
-| <a name="output_all"></a> [all](#output\_all) | n/a |
-| <a name="output_rg_id"></a> [rg\_id](#output\_rg\_id) | n/a |
+| <a name="output_all"></a> [all](#output\_all) | all resource group details |
+| <a name="output_rg_id"></a> [rg\_id](#output\_rg\_id) | value of the resource group id |
 | <a name="output_rg_location"></a> [rg\_location](#output\_rg\_location) | The location of each resource group |
-| <a name="output_rg_name"></a> [rg\_name](#output\_rg\_name) | n/a |
-| <a name="output_rg_tags"></a> [rg\_tags](#output\_rg\_tags) | n/a |
+| <a name="output_rg_name"></a> [rg\_name](#output\_rg\_name) | value of the resource group name |
+| <a name="output_rg_tags"></a> [rg\_tags](#output\_rg\_tags) | value of the resource group tags |
