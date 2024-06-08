@@ -1,12 +1,50 @@
+## Usage
+
+```terraform
+locals {
+  resource_group = jsondecode(file("<path to json file/><resource-group.json>"))
+}
+
+module "resource_group" {
+  source = "./module/rg"
+
+  resource_groups = local.resource_group.resource_groups
+
+}
+```
+
+## Example of JSON 
+
+```json
+{
+    "resource_groups": {
+        "<resource group name>": {
+            "rg_location": "West Europe",
+            "rg_tags": {
+                "environment": "<dev/uat/prd>"
+            }
+        },
+        "<resource group mame>": {
+            "rg_location": "West Europe",
+            "rg_tags": {
+                "environment": "<dev/uat/prd>"
+            }
+        }
+    }
+}
+```
+
 ## Requirements
 
-No requirements.
+| Name | Version |
+|------|---------|
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >=3.104.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | n/a |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | >=3.104.0 |
 
 ## Modules
 
@@ -22,14 +60,10 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_resource_groups"></a> [resource\_groups](#input\_resource\_groups) | Map of resource group details | <pre>map(object({<br>    rg_name     = string<br>    cmdb_prj    = string<br>    tnnt_env    = string<br>    region      = string<br>    rg_location = string<br>    rg_tags     = map(string)<br>  }))</pre> | `{}` | no |
+| <a name="input_resource_groups"></a> [resource\_groups](#input\_resource\_groups) | Map of resource group details | <pre>map(object({<br>    rg_location = string<br>    rg_tags     = map(string)<br>  }))</pre> | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_all"></a> [all](#output\_all) | all resource group details |
-| <a name="output_rg_id"></a> [rg\_id](#output\_rg\_id) | value of the resource group id |
-| <a name="output_rg_location"></a> [rg\_location](#output\_rg\_location) | The location of each resource group |
-| <a name="output_rg_name"></a> [rg\_name](#output\_rg\_name) | value of the resource group name |
-| <a name="output_rg_tags"></a> [rg\_tags](#output\_rg\_tags) | value of the resource group tags |
+| <a name="output_resource_groups"></a> [resource\_groups](#output\_resource\_groups) | All resource groups |
